@@ -1,9 +1,6 @@
 package app;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.ListIterator;
+import java.util.*;
 
 /**
  * Created by Jake Mitchell on 23 Jul, 2016.
@@ -359,8 +356,12 @@ class SudokuPuzzle {
     }
 
     private void removeSquares (int difficulty) {
-        while(solutions() == 1) {
-            // do something
+        // TODO: find a better logic to remove squares based on difficulty.
+        Random random = new Random();
+        for(int i = 0; i < 20 * (difficulty + 1); i++){
+            int randomRow = random.nextInt(9);
+            int randomCol = random.nextInt(9);
+            puzzle[randomRow][randomCol] = 0;
         }
     }
 
